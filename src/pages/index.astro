@@ -2,61 +2,63 @@
 import BlankNoContainer from '../layouts/BlankNoContainer.astro';
 import Search from '../components/Search.astro';
 import Card from '../components/Card.astro';
-export const prerender = true;
+
+import placeholder from '../assets/image-placeholder.jpg';
+
 const branches = [
 	{
 		title: 'US Army',
-		imageSrc: 'src/assets/image-placeholder.jpg',
+		imageSrc: placeholder.src,
 		alt: 'Placeholder image',
 	},
 	{
 		title: 'Army National Guard',
-		imageSrc: 'src/assets/image-placeholder.jpg',
+		imageSrc: placeholder.src,
 		alt: 'Placeholder image',
 	},
 	{
 		title: 'US Army Reserves',
-		imageSrc: 'src/assets/image-placeholder.jpg',
+		imageSrc: placeholder.src,
 		alt: 'Placeholder image',
 	},
 	{
 		title: 'US Navy',
-		imageSrc: 'src/assets/image-placeholder.jpg',
+		imageSrc: placeholder.src,
 		alt: 'Placeholder image',
 	},
 	{
 		title: 'US Navy Reserves',
-		imageSrc: 'src/assets/image-placeholder.jpg',
+		imageSrc: placeholder.src,
 		alt: 'Placeholder image',
 	},
 	{
 		title: 'US Navy SEALS',
-		imageSrc: 'src/assets/image-placeholder.jpg',
+		imageSrc: placeholder.src,
 		alt: 'Placeholder image',
 	},
 	{
 		title: 'US Marine Corps',
-		imageSrc: 'src/assets/image-placeholder.jpg',
+		imageSrc: placeholder.src,
 		alt: 'Placeholder image',
 	},
 	{
 		title: 'US Coast Guard',
-		imageSrc: 'src/assets/image-placeholder.jpg',
+		imageSrc: placeholder.src,
 		alt: 'Placeholder image',
 	},
 	{
 		title: 'US Air Force',
-		imageSrc: 'src/assets/image-placeholder.jpg',
+		imageSrc: placeholder.src,
 		alt: 'Placeholder image',
 	},
 	{
 		title: 'US National Guard',
-		imageSrc: 'src/assets/image-placeholder.jpg',
+		imageSrc: placeholder.src,
 		alt: 'Placeholder image',
 	},
 	{
 		title: `Women's Army Corps`,
-		imageSrc: 'src/assets/image-placeholder.jpg',
+		imageSrc: placeholder.src,
 		alt: 'Placeholder image',
 	},
 ];

@@ -1,5 +1,6 @@
 ---
 import type { veteranData } from '../layouts/SingleVeteran.astro';
+import placeholder from '../assets/avatar-placeholder.png';
 
 interface Props {
 	data: veteranData['frontmatter'];
@@ -17,7 +18,7 @@ const {
 	},
 	url,
 } = Astro.props;
-const imageSrc = 'src/assets/avatar-placeholder.png';
+
 const alt = 'Placeholder image';
 ---
 
@@ -25,7 +26,7 @@ const alt = 'Placeholder image';
 	<div class="row g-0">
 		<div class="col-md-4">
 			<img
-				src={imageSrc}
+				src={placeholder.src}
 				class="h-100 w-100 object-fit-cover rounded-start"
 				alt={alt}
 			/>
