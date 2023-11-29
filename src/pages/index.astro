@@ -77,7 +77,10 @@ const branches = [
 				branches.map(({ title, imageSrc, alt }) => {
 					const url = title.toLowerCase().replace(/ /g, '-');
 					return (
-						<a href={`/search?query=${url}`} class="flex-grow-1">
+						<a
+							href={`/wireframe-veterans-archive/search?query=${url}`}
+							class="flex-grow-1"
+						>
 							<Card title={title} imageSrc={imageSrc} alt={alt} />
 						</a>
 					);
