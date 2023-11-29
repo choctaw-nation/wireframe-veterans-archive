@@ -1,0 +1,107 @@
+---
+import BlankNoContainer from '../layouts/BlankNoContainer.astro';
+import Search from '../components/Search.astro';
+import Card from '../components/Card.astro';
+export const prerender = true;
+const branches = [
+	{
+		title: 'US Army',
+		imageSrc: 'src/assets/image-placeholder.jpg',
+		alt: 'Placeholder image',
+	},
+	{
+		title: 'Army National Guard',
+		imageSrc: 'src/assets/image-placeholder.jpg',
+		alt: 'Placeholder image',
+	},
+	{
+		title: 'US Army Reserves',
+		imageSrc: 'src/assets/image-placeholder.jpg',
+		alt: 'Placeholder image',
+	},
+	{
+		title: 'US Navy',
+		imageSrc: 'src/assets/image-placeholder.jpg',
+		alt: 'Placeholder image',
+	},
+	{
+		title: 'US Navy Reserves',
+		imageSrc: 'src/assets/image-placeholder.jpg',
+		alt: 'Placeholder image',
+	},
+	{
+		title: 'US Navy SEALS',
+		imageSrc: 'src/assets/image-placeholder.jpg',
+		alt: 'Placeholder image',
+	},
+	{
+		title: 'US Marine Corps',
+		imageSrc: 'src/assets/image-placeholder.jpg',
+		alt: 'Placeholder image',
+	},
+	{
+		title: 'US Coast Guard',
+		imageSrc: 'src/assets/image-placeholder.jpg',
+		alt: 'Placeholder image',
+	},
+	{
+		title: 'US Air Force',
+		imageSrc: 'src/assets/image-placeholder.jpg',
+		alt: 'Placeholder image',
+	},
+	{
+		title: 'US National Guard',
+		imageSrc: 'src/assets/image-placeholder.jpg',
+		alt: 'Placeholder image',
+	},
+	{
+		title: `Women's Army Corps`,
+		imageSrc: 'src/assets/image-placeholder.jpg',
+		alt: 'Placeholder image',
+	},
+];
+---
+
+<BlankNoContainer title="Home">
+	<section class="container py-5 my-5 px-3 mx-auto">
+		<div class="row">
+			<Search />
+		</div>
+	</section>
+	<section class="container py-5 my-5">
+		<div class="row my-3">
+			<h2 class="fs-2">Search by Branch</h2>
+		</div>
+		<div class="row row-cols-md-4 gap-2 justify-content-between">
+			{
+				branches.map(({ title, imageSrc, alt }) => {
+					const url = title.toLowerCase().replace(/ /g, '-');
+					return (
+						<a href={`/search?query=${url}`} class="flex-grow-1">
+							<Card title={title} imageSrc={imageSrc} alt={alt} />
+						</a>
+					);
+				})
+			}
+		</div>
+	</section>
+	<hr />
+	<section class="about container">
+		<div class="row justify-content-center">
+			<div class="col-md-8">
+				<h2>About the Choctaw Veterans Archive</h2>
+				<p>
+					The Choctaw Veterans Archive is a collection of stories from
+					Choctaw veterans of the United States Armed Forces. The goal
+					of this project is to preserve the stories of veterans and
+					make them accessible to the public.
+				</p>
+				<p>
+					Choctaw veterans have served in every major conflict since
+					the Choctaw Code Talkers of World War I. The Choctaw Nation
+					is proud of its veterans and their service to our country.
+				</p>
+			</div>
+		</div>
+	</section>
+</BlankNoContainer>

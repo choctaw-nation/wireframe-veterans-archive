@@ -1,0 +1,54 @@
+---
+export interface OffCanvas {
+	buttonText?: string;
+	id: string;
+	direction?: 'start' | 'end' | 'top' | 'bottom';
+}
+
+const { buttonText, id, direction = 'end' } = Astro.props;
+---
+
+<script>
+	import Offcanvas from 'bootstrap/js/dist/offcanvas';
+</script>
+<style>
+	.menu-line {
+		display: block;
+		width: 1.5rem;
+		height: 0.2rem;
+		margin-top: 0.3rem;
+		margin-bottom: 0.3rem;
+		border-radius: 0.25rem;
+		background-color: currentColor;
+	}
+</style>
+<button
+	class="btn btn-secondary"
+	type="button"
+	data-bs-toggle="offcanvas"
+	data-bs-target={`#${id}`}
+	aria-controls={id}
+>
+	{buttonText ? buttonText : (
+		<span class="menu-line"></span><span class="menu-line"></span><span class="menu-line"></span>
+	)}
+</button>
+
+<div
+	class={`offcanvas offcanvas-${direction}`}
+	tabindex="-1"
+	id={id}
+	aria-labelledby={`${id}Label`}
+>
+	<div class="offcanvas-header">
+		<h5 class="offcanvas-title" id={`${id}Label`}>Offcanvas</h5>
+		<button
+			type="button"
+			class="btn-close"
+			data-bs-dismiss="offcanvas"
+			aria-label="Close"></button>
+	</div>
+	<div class="offcanvas-body">
+		<slot />
+	</div>
+</div>

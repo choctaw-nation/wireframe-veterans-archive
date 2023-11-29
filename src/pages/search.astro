@@ -1,0 +1,30 @@
+---
+import BlankNoContainer from '../layouts/BlankNoContainer.astro';
+import VeteranPreviewCard from '../components/VeteranPreviewCard.astro';
+const request = await Astro.request.url;
+const url = new URL(request);
+const searchParams = new URLSearchParams(url.search);
+const query = searchParams.get('query');
+
+const allPosts = await Astro.glob('../pages/posts/*.md');
+---
+
+<BlankNoContainer title="Search Results">
+	<section class="container">
+		<h1>Showing results for: <br class="d-block d-sm-none" />"{query}"</h1>
+	</section>
+	<section class="results container">
+		<ul class="list-unstyled card-group">
+			{
+				allPosts.map((post) => (
+					<li>
+						<VeteranPreviewCard
+							data={post.frontmatter}
+							url={post.url}
+						/>
+					</li>
+				))
+			}
+		</ul>
+	</section>
+</BlankNoContainer>

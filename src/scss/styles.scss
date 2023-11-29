@@ -2,6 +2,8 @@
 
 $font-size-root: 62.5%; // 1rem = 10px
 $font-size-base: 1.6rem; // Assumes the browser default, typically `16px`
+$grid-gutter-width: 2.4rem;
+$spacer: 1.6rem;
 
 // Toggle global options
 $enable-gradients: true;
@@ -16,7 +18,8 @@ $offcanvas-box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
 $body-color: #333;
 $body-bg: #fff;
 $border-radius: 0.4rem;
-$success: #7952b3;
+$link-decoration: none;
+// $success: #7952b3;
 
 // Required
 @import "bootstrap/scss/variables";
@@ -28,21 +31,21 @@ $success: #7952b3;
 @import "bootstrap/scss/reboot";
 
 @import "bootstrap/scss/type";
-// @import "bootstrap/scss/images";
+@import "bootstrap/scss/images";
 @import "bootstrap/scss/containers";
 @import "bootstrap/scss/grid";
 // @import "bootstrap/scss/tables";
-// @import "bootstrap/scss/forms";
+@import "bootstrap/scss/forms";
 @import "bootstrap/scss/buttons";
 @import "bootstrap/scss/transitions";
 @import "bootstrap/scss/dropdown";
 // @import "bootstrap/scss/button-group";
-// @import "bootstrap/scss/nav";
+@import "bootstrap/scss/nav";
 // @import "bootstrap/scss/navbar"; // Requires nav
-// @import "bootstrap/scss/card";
-// @import "bootstrap/scss/breadcrumb";
-// @import "bootstrap/scss/accordion";
-// @import "bootstrap/scss/pagination";
+@import "bootstrap/scss/card";
+@import "bootstrap/scss/breadcrumb";
+@import "bootstrap/scss/accordion";
+@import "bootstrap/scss/pagination";
 // @import "bootstrap/scss/badge";
 // @import "bootstrap/scss/alert";
 // @import "bootstrap/scss/progress";
@@ -55,20 +58,10 @@ $success: #7952b3;
 // @import "bootstrap/scss/carousel";
 // @import "bootstrap/scss/spinners";
 @import "bootstrap/scss/offcanvas"; // Requires transitions
-// @import "bootstrap/scss/placeholders";
+@import "bootstrap/scss/placeholders";
 
 // Helpers
 // @import "bootstrap/scss/helpers";
 
 // Utilities
 @import "bootstrap/scss/utilities/api";
-
-//
-// Custom styles
-//
-
-@import "icon-list";
-
-body {
-	padding: 1.5rem;
-}

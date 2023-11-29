@@ -1,0 +1,44 @@
+---
+import OffCanvas from './OffCanvas.astro';
+---
+
+<header class="mb-5 border-bottom">
+	<div
+		class="py-5 container d-flex justify-content-between align-items-md-center"
+	>
+		<a
+			href="/"
+			class="d-flex align-items-center text-dark text-decoration-none h4"
+		>
+			<span>Choctaw Nation<br />Veterans Archive</span>
+		</a>
+		<form
+			class="d-none d-md-flex flex-grow-1 mx-5"
+			role="search"
+			action="/search"
+		>
+			<input
+				class="form-control me-2"
+				type="search"
+				placeholder="Find a Veteran"
+				aria-label="Search"
+			/>
+			<button class="btn btn-outline-secondary" type="submit"
+				>Search</button
+			>
+		</form>
+		<OffCanvas id="off-canvas-menu">
+			<div>
+				Some text as placeholder. In real life you can have the elements
+				you have chosen. Like, text, images, lists, etc.
+			</div>
+			<ul>
+				<li><a href="#">Action</a></li>
+				<li><a href="#">Another action</a></li>
+				<li>
+					<a href="#">Something else here</a>
+				</li>
+			</ul>
+		</OffCanvas>
+	</div>
+</header>
