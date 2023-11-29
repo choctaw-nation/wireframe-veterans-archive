@@ -1,100 +1,21 @@
 ---
-import BlankNoContainer from '../layouts/BlankNoContainer.astro';
+import BlankHeaderFooterContainer from '../layouts/BlankHeaderFooterContainer.astro';
 import Search from '../components/Search.astro';
-import Card from '../components/Card.astro';
-
-import placeholder from '../assets/image-placeholder.jpg';
-
-const branches = [
-	{
-		title: 'US Army',
-		imageSrc: placeholder.src,
-		alt: 'Placeholder image',
-	},
-	{
-		title: 'Army National Guard',
-		imageSrc: placeholder.src,
-		alt: 'Placeholder image',
-	},
-	{
-		title: 'US Army Reserves',
-		imageSrc: placeholder.src,
-		alt: 'Placeholder image',
-	},
-	{
-		title: 'US Navy',
-		imageSrc: placeholder.src,
-		alt: 'Placeholder image',
-	},
-	{
-		title: 'US Navy Reserves',
-		imageSrc: placeholder.src,
-		alt: 'Placeholder image',
-	},
-	{
-		title: 'US Navy SEALS',
-		imageSrc: placeholder.src,
-		alt: 'Placeholder image',
-	},
-	{
-		title: 'US Marine Corps',
-		imageSrc: placeholder.src,
-		alt: 'Placeholder image',
-	},
-	{
-		title: 'US Coast Guard',
-		imageSrc: placeholder.src,
-		alt: 'Placeholder image',
-	},
-	{
-		title: 'US Air Force',
-		imageSrc: placeholder.src,
-		alt: 'Placeholder image',
-	},
-	{
-		title: 'US National Guard',
-		imageSrc: placeholder.src,
-		alt: 'Placeholder image',
-	},
-	{
-		title: `Women's Army Corps`,
-		imageSrc: placeholder.src,
-		alt: 'Placeholder image',
-	},
-];
 ---
 
-<BlankNoContainer title="Home">
-	<section class="container py-5 my-5 px-3 mx-auto">
+<BlankHeaderFooterContainer title="Home" withSearch={false} withFilters={false}>
+	<section class="py-5 my-5 px-3 mx-auto">
 		<div class="row">
 			<Search />
 		</div>
 	</section>
-	<section class="container py-5 my-5">
-		<div class="row my-3">
-			<h2 class="fs-2">Search by Branch</h2>
-		</div>
-		<div class="row row-cols-md-4 gap-2 justify-content-between">
-			{
-				branches.map(({ title, imageSrc, alt }) => {
-					const url = title.toLowerCase().replace(/ /g, '-');
-					return (
-						<a
-							href={`/wireframe-veterans-archive/search?query=${url}`}
-							class="flex-grow-1"
-						>
-							<Card title={title} imageSrc={imageSrc} alt={alt} />
-						</a>
-					);
-				})
-			}
-		</div>
-	</section>
-	<hr />
-	<section class="about container">
+	<section class="about">
+		<hr class="my-3" />
 		<div class="row justify-content-center">
 			<div class="col-md-8">
-				<h2>About the Choctaw Veterans Archive</h2>
+				<h2 class="display-2 mb-3">
+					About the Choctaw Veterans Archive
+				</h2>
 				<p>
 					The Choctaw Veterans Archive is a collection of stories from
 					Choctaw veterans of the United States Armed Forces. The goal
@@ -109,4 +30,4 @@ const branches = [
 			</div>
 		</div>
 	</section>
-</BlankNoContainer>
+</BlankHeaderFooterContainer>

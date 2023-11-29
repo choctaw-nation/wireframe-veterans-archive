@@ -1,5 +1,5 @@
 ---
-import BlankNoContainer from './BlankNoContainer.astro';
+import BlankHeaderFooterContainer from './BlankHeaderFooterContainer.astro';
 import avatar from '../assets/avatar-placeholder.png';
 import placeholder from '../assets/image-placeholder.jpg';
 
@@ -52,7 +52,7 @@ const {
 const title = `${firstName} ${middleName ? middleName + ' ' : ''}${lastName}`;
 ---
 
-<BlankNoContainer title={title}>
+<BlankHeaderFooterContainer title={title}>
 	<div class="container">
 		<article>
 			<section class="biography p-2 my-2">
@@ -385,4 +385,4 @@ const title = `${firstName} ${middleName ? middleName + ' ' : ''}${lastName}`;
 			});
 		})();
 	</script>
-</BlankNoContainer>
+</BlankHeaderFooterContainer>

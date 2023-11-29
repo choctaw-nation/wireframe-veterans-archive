@@ -3,9 +3,10 @@ export interface OffCanvas {
 	buttonText?: string;
 	id: string;
 	direction?: 'start' | 'end' | 'top' | 'bottom';
+	classList?: string;
 }
 
-const { buttonText, id, direction = 'end' } = Astro.props;
+const { buttonText, id, direction = 'end',classList } = Astro.props;
 ---
 
 <script>
@@ -23,7 +24,7 @@ const { buttonText, id, direction = 'end' } = Astro.props;
 	}
 </style>
 <button
-	class="btn btn-secondary"
+	class={`btn btn-secondary ${classList}`}
 	type="button"
 	data-bs-toggle="offcanvas"
 	data-bs-target={`#${id}`}

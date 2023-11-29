@@ -6,7 +6,7 @@ $grid-gutter-width: 2.4rem;
 $spacer: 1.6rem;
 
 // Toggle global options
-$enable-gradients: true;
+// $enable-gradients: true;
 $enable-shadows: true;
 
 $offcanvas-box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
@@ -15,11 +15,11 @@ $offcanvas-box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
 @import "bootstrap/scss/functions";
 
 // Customize some defaults
-$body-color: #333;
+$body-color: #4b4b4b;
 $body-bg: #fff;
 $border-radius: 0.4rem;
 $link-decoration: none;
-// $success: #7952b3;
+$success: #7952b3;
 
 // Required
 @import "bootstrap/scss/variables";
@@ -41,7 +41,7 @@ $link-decoration: none;
 @import "bootstrap/scss/dropdown";
 // @import "bootstrap/scss/button-group";
 @import "bootstrap/scss/nav";
-// @import "bootstrap/scss/navbar"; // Requires nav
+@import "bootstrap/scss/navbar"; // Requires nav
 @import "bootstrap/scss/card";
 @import "bootstrap/scss/breadcrumb";
 @import "bootstrap/scss/accordion";

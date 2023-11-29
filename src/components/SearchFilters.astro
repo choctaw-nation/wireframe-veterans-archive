@@ -1,0 +1,98 @@
+---
+const filters = [
+	{
+		label: 'Wars',
+		id: 'wars',
+		options: [
+			{
+				label: 'World War I',
+				value: 'ww1',
+			},
+			{
+				label: 'World War II',
+				value: 'ww2',
+			},
+			{
+				label: 'Korean War',
+				value: 'korean',
+			},
+			{
+				label: 'Vietnam War',
+				value: 'vietnam',
+			},
+			{
+				label: 'Gulf War',
+				value: 'gulf',
+			},
+			{
+				label: 'Afghanistan War',
+				value: 'afghanistan',
+			},
+			{
+				label: 'Iraq War',
+				value: 'iraq',
+			},
+		],
+	},
+	{
+		label: 'Branch',
+		id: 'branch',
+		options: [
+			{
+				label: 'US Army',
+				value: 'army',
+			},
+			{
+				label: 'US Navy',
+				value: 'navy',
+			},
+			{
+				label: 'US Marine Corps',
+				value: 'marines',
+			},
+			{
+				label: 'US Air Force',
+				value: 'air-force',
+			},
+			{
+				label: 'US Coast Guard',
+				value: 'coast-guard',
+			},
+			{ label: 'Merchant Marines', value: 'merchant-marines' },
+			{ label: `Women's Army Corps`, value: 'wac' },
+			{ label: 'Army Reserves', value: 'army-reserves' },
+			{ label: 'Navy Reserves', value: 'navy-reserves' },
+			{ label: 'National Guard', value: 'national-guard' },
+			{ label: 'US Navy Seals', value: 'navy-seals' },
+		],
+	},
+];
+---
+
+<div class="input-group">
+	{
+		filters.map((filter) => (
+			<>
+				<label class="input-group-text" for={filter.id}>
+					{filter.label}
+				</label>
+				<select class="form-select" id={filter.id}>
+					<option selected>Choose...</option>
+					{filter.options.map((option) => (
+						<option value={option.value}>{option.label}</option>
+					))}
+				</select>
+			</>
+		))
+	}
+	<span class="input-group-text">Born After</span>
+	<input
+		type="text"
+		class="form-control"
+		aria-label="Year born after"
+		placeholder="1965"
+	/>
+	<button class="btn btn-secondary" type="button" id="reset"
+		>Reset Filters</button
+	>
+</div>
