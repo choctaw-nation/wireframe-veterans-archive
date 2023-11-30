@@ -74,8 +74,12 @@ const filters = [
 </script>
 
 {
-	filters.map((filter) => (
-		<div class="dropdown">
+	filters.map((filter, index) => (
+		<div
+			class={`dropdown col flex-shrink-1 flex-grow-0 order-${
+				index + 2
+			} order-sm-0`}
+		>
 			<button
 				type="button"
 				class="btn btn-secondary dropdown-toggle"
@@ -104,13 +108,16 @@ const filters = [
 		</div>
 	))
 }
-<div class="input-group flex-grow-0 w-auto">
-	<span class="input-group-text" id="birth-year">Born After</span>
-	<input
-		type="text"
-		class="form-control"
-		placeholder="1940"
-		aria-label="birth year"
-		aria-describedby="birth-year"
-	/>
+
+<div class="flex-grow-0 col-12 col-sm-8 order-1 order-sm-0 flex-grow-1">
+	<div class="input-group">
+		<span class="input-group-text" id="birth-year">Born After</span>
+		<input
+			type="text"
+			class="form-control"
+			placeholder="1940"
+			aria-label="birth year"
+			aria-describedby="birth-year"
+		/>
+	</div>
 </div>

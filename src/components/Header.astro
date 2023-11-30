@@ -6,59 +6,63 @@ interface Props {
 	withFilters: boolean;
 }
 const { withSearch, withFilters } = Astro.props;
-
-const innerWrapper =
-	'container-fluid gx-5 d-flex flex-wrap justify-content-between align-items-md-center';
 ---
 
 <header class="mb-4 py-4">
-	<div class={innerWrapper}>
-		<a
-			href="/wireframe-veterans-archive/"
-			class="d-flex align-items-center text-dark text-decoration-none h4"
-		>
-			<span>Choctaw Nation<br />Veterans Archive</span>
-		</a>
+	<div class="container-fluid gx-5">
+		<div class="row justify-content-between align-items-center">
+			<a
+				href="/wireframe-veterans-archive/"
+				class="col text-dark text-decoration-none h4 p-0"
+			>
+				<span>Choctaw Nation<br />Veterans Archive</span>
+			</a>
+			{
+				withSearch && (
+					<form
+						class="col-12 col-sm-4 col-md-8 d-flex flex-grow-1 mx-0 my-3 my-md-0 mx-md-5 order-3 order-sm-2 p-0"
+						role="search"
+						action="/wireframe-veterans-archive/search"
+					>
+						<input
+							class="form-control me-2"
+							type="search"
+							placeholder="Find a Veteran"
+							aria-label="Search"
+						/>
+						<button class="btn btn-outline-secondary" type="submit">
+							Search
+						</button>
+					</form>
+				)
+			}
+			<OffCanvas
+				id="off-canvas-menu"
+				classList="col flex-grow-0 order-2 order-sm-3"
+			>
+				<div>
+					Some text as placeholder. In real life you can have the
+					elements you have chosen. Like, text, images, lists, etc.
+				</div>
+				<ul>
+					<li><a href="#">Link</a></li>
+					<li><a href="#">Another Link</a></li>
+					<li>
+						<a href="#">Something else here</a>
+					</li>
+				</ul>
+			</OffCanvas>
+		</div>
+	</div>
+	<div class="container-fluid gx-5 bg-body-secondary">
 		{
-			withSearch && (
-				<form
-					class="d-flex flex-grow-1 mx-0 my-3 my-md-0 mx-md-5 order-3 order-md-2"
-					role="search"
-					action="/wireframe-veterans-archive/search"
+			withFilters && (
+				<div
+					class={`py-3 row justify-content-between justify-content-sm-start align-items-md-center gap-4 gap-sm-2`}
 				>
-					<input
-						class="form-control me-2"
-						type="search"
-						placeholder="Find a Veteran"
-						aria-label="Search"
-					/>
-					<button class="btn btn-outline-secondary" type="submit">
-						Search
-					</button>
-				</form>
+					<SearchFilters />
+				</div>
 			)
 		}
-		<OffCanvas id="off-canvas-menu" classList="order-2 order-md-3">
-			<div>
-				Some text as placeholder. In real life you can have the elements
-				you have chosen. Like, text, images, lists, etc.
-			</div>
-			<ul>
-				<li><a href="#">Link</a></li>
-				<li><a href="#">Another Link</a></li>
-				<li>
-					<a href="#">Something else here</a>
-				</li>
-			</ul>
-		</OffCanvas>
 	</div>
-	{
-		withFilters && (
-			<div
-				class={`bg-body-secondary py-3 container-fluid gx-5 d-flex align-items-md-center gap-2`}
-			>
-				<SearchFilters />
-			</div>
-		)
-	}
 </header>
