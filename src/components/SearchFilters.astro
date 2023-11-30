@@ -69,30 +69,48 @@ const filters = [
 ];
 ---
 
-<div class="input-group">
-	{
-		filters.map((filter) => (
-			<>
-				<label class="input-group-text" for={filter.id}>
-					{filter.label}
-				</label>
-				<select class="form-select" id={filter.id}>
-					<option selected>Choose...</option>
+<script>
+	import Dropdown from 'bootstrap/js/dist/dropdown';
+</script>
+
+{
+	filters.map((filter) => (
+		<div class="dropdown">
+			<button
+				type="button"
+				class="btn btn-secondary dropdown-toggle"
+				data-bs-toggle="dropdown"
+				aria-expanded="false"
+				data-bs-auto-close="outside"
+			>
+				{filter.label}
+			</button>
+			<form class="dropdown-menu py-4 px-3">
+				<ul class="form-check list-unstyled">
 					{filter.options.map((option) => (
-						<option value={option.value}>{option.label}</option>
+						<li>
+							<input
+								type="checkbox"
+								class="form-check-input"
+								id={option.value}
+							/>
+							<label class="form-check-label" for={option.value}>
+								{option.label}
+							</label>
+						</li>
 					))}
-				</select>
-			</>
-		))
-	}
-	<span class="input-group-text">Born After</span>
+				</ul>
+			</form>
+		</div>
+	))
+}
+<div class="input-group flex-grow-0 w-auto">
+	<span class="input-group-text" id="birth-year">Born After</span>
 	<input
 		type="text"
 		class="form-control"
-		aria-label="Year born after"
-		placeholder="1965"
+		placeholder="1940"
+		aria-label="birth year"
+		aria-describedby="birth-year"
 	/>
-	<button class="btn btn-secondary" type="button" id="reset"
-		>Reset Filters</button
-	>
 </div>

@@ -17,10 +17,7 @@ const allPosts = await Astro.glob('../pages/posts/*.md');
 		<ul class="list-unstyled">
 			{
 				allPosts.map((post) => (
-					<li
-						style="max-height:30rem"
-						class="d-block overflow-hidden border-1 border border-secondary overflow-hidden rounded-3 shadow my-3"
-					>
+					<li>
 						<VeteranPreviewCard
 							data={post.frontmatter}
 							url={post.url}
@@ -31,3 +28,13 @@ const allPosts = await Astro.glob('../pages/posts/*.md');
 		</ul>
 	</section>
 </BlankHeaderFooterContainer>
+<style lang="scss">
+	.results {
+		ul {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+			grid-gap: 1rem;
+			justify-content: space-evenly;
+		}
+	}
+</style>

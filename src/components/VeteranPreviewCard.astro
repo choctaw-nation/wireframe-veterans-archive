@@ -22,72 +22,65 @@ const {
 const alt = 'Placeholder image';
 ---
 
-<div class="card h-100">
-	<div class="row">
-		<div class="col-md-4">
-			<img
-				src={placeholder.src}
-				class="h-100 img-fluid object-fit-cover rounded-start"
-				alt={alt}
-			/>
-		</div>
-		<div class="col-md-8">
-			<div class="card-body d-flex flex-column">
-				<span class="card-title h4">{firstName} {lastName}</span>
-				<div class="card-text py-2 mb-2">
-					<div class="at-a-glance">
-						{
-							wars && (
-								<p class="wars">
-									<b>{wars.length > 1 ? 'Wars:' : 'War:'}</b>{' '}
-									{wars.join(', ')}
-								</p>
-							)
-						}
-						{
-							datesOfService && (
-								<p class="dates-of-service">
-									<b>
-										{datesOfService.length > 1
-											? 'Dates of Service:'
-											: 'Date of Service:'}
-									</b>{' '}
-									{datesOfService.join(', ')}
-								</p>
-							)
-						}
-						{
-							serviceBranch && (
-								<p class="service-branch">
-									{serviceBranch.length > 1 ? (
-										<b>Branches of service:</b>
-									) : (
-										<b>Branch of service:</b>
-									)}{' '}
-									{serviceBranch.join(', ')}
-								</p>
-							)
-						}
-						{
-							rankAtDischarge && (
-								<p class="rank">
-									{rankAtDischarge.length > 1 ? (
-										<b>Ranks at discharge:</b>
-									) : (
-										<b>Rank at discharge:</b>
-									)}{' '}
-									{rankAtDischarge.join(', ')}
-								</p>
-							)
-						}
-					</div>
-				</div>
-				<a
-					href={url}
-					class="btn btn-outline-primary mt-auto align-self-start"
-					>Read More</a
-				>
+<div class="card shadow h-100">
+	<img
+		src={placeholder.src}
+		class="card-img-top object-fit-cover"
+		style="max-height:15rem"
+		alt={alt}
+	/>
+	<div class="card-body d-flex flex-column">
+		<span class="card-title h4">{firstName} {lastName}</span>
+		<div class="card-text py-2 mb-2">
+			<div class="at-a-glance">
+				{
+					wars && (
+						<p class="wars">
+							<b>{wars.length > 1 ? 'Wars:' : 'War:'}</b>{' '}
+							{wars.join(', ')}
+						</p>
+					)
+				}
+				{
+					datesOfService && (
+						<p class="dates-of-service">
+							<b>
+								{datesOfService.length > 1
+									? 'Dates of Service:'
+									: 'Date of Service:'}
+							</b>{' '}
+							{datesOfService.join(', ')}
+						</p>
+					)
+				}
+				{
+					serviceBranch && (
+						<p class="service-branch">
+							{serviceBranch.length > 1 ? (
+								<b>Branches of service:</b>
+							) : (
+								<b>Branch of service:</b>
+							)}{' '}
+							{serviceBranch.join(', ')}
+						</p>
+					)
+				}
+				{
+					rankAtDischarge && (
+						<p class="rank">
+							{rankAtDischarge.length > 1 ? (
+								<b>Ranks at discharge:</b>
+							) : (
+								<b>Rank at discharge:</b>
+							)}{' '}
+							{rankAtDischarge.join(', ')}
+						</p>
+					)
+				}
 			</div>
 		</div>
+		<a href={url} class="btn btn-outline-primary mt-auto align-self-start"
+			>Read More</a
+		>
 	</div>
 </div>

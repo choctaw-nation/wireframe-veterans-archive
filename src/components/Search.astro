@@ -1,9 +1,20 @@
-<form class="mb-3" action="/wireframe-veterans-archive/search">
-	<label for="search" class="form-label display-1">Find a veteran</label>
-	<input
-		type="text"
-		class="form-control"
-		id="search"
-		placeholder="Search by name, conflict, branch, or more"
-	/>
+<form class="row" action="/wireframe-veterans-archive/search">
+	<div class="col-12">
+		<label for="search" class="form-label">
+			<h1 class="display-1">Find a veteran</h1>
+		</label>
+	</div>
+	<div class="col d-flex">
+		<input type="text" class="form-control flex-grow-1" id="search" />
+		<input class="btn btn-secondary" type="submit" value="Search" />
+	</div>
+	<div class="col-12">
+		<div class="form-text">
+			Try searching by name, conflict, branch, or more
+		</div>
+	</div>
 </form>
+<div class="alert alert-info mt-5" role="alert">
+	<b>Developer Note:</b> Regardless of what you type in, this form will take
+	you to the next page with static results.
+</div>

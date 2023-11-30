@@ -1,0 +1,281 @@
+---
+const { frontmatter } = Astro.props;
+const {
+	serviceBranch,
+	datesOfService,
+	rankAtDischarge,
+	awards,
+	wars,
+	advancedTraining,
+	overseasDuty,
+	jobs,
+} = frontmatter;
+---
+
+<style lang="scss">
+	.tab-pane {
+		padding: 1rem;
+	}
+</style>
+
+<ul
+	class="nav nav-tabs flex-nowrap overflow-x-scroll overflow-y-hidden align-items-center text-center"
+	id="myTab"
+	role="tablist"
+>
+	<li class="nav-item" role="presentation">
+		<button
+			class="nav-link active"
+			id="service-information-tab"
+			data-bs-toggle="tab"
+			data-bs-target="#service-information-tab-pane"
+			type="button"
+			role="tab"
+			aria-controls="service-information-tab-pane"
+			aria-selected="true">Service Information</button
+		>
+	</li>
+
+	{
+		awards && (
+			<li class="nav-item" role="presentation">
+				<button
+					class="nav-link"
+					id="awards-tab"
+					data-bs-toggle="tab"
+					data-bs-target="#awards-tab-pane"
+					type="button"
+					role="tab"
+					aria-controls="awards-tab-pane"
+					aria-selected="false"
+				>
+					Awards & Commendations
+				</button>
+			</li>
+		)
+	}
+	{
+		advancedTraining && (
+			<li class="nav-item" role="presentation">
+				<button
+					class="nav-link"
+					id="training-tab"
+					data-bs-toggle="tab"
+					data-bs-target="#training-tab-pane"
+					type="button"
+					role="tab"
+					aria-controls="training-tab-pane"
+					aria-selected="false"
+				>
+					Training
+				</button>
+			</li>
+		)
+	}
+	{
+		overseasDuty && (
+			<li class="nav-item" role="presentation">
+				<button
+					class="nav-link"
+					id="overseas-tab"
+					data-bs-toggle="tab"
+					data-bs-target="#overseas-tab-pane"
+					type="button"
+					role="tab"
+					aria-controls="overseas-tab-pane"
+					aria-selected="false"
+				>
+					Overseas Duty
+				</button>
+			</li>
+		)
+	}
+	{
+		jobs && (
+			<li class="nav-item" role="presentation">
+				<button
+					class="nav-link"
+					id="jobs-tab"
+					data-bs-toggle="tab"
+					data-bs-target="#jobs-tab-pane"
+					type="button"
+					role="tab"
+					aria-controls="jobs-tab-pane"
+					aria-selected="false"
+				>
+					Jobs
+				</button>
+			</li>
+		)
+	}
+</ul>
+<div class="tab-content" id="myTabContent">
+	<div
+		class="tab-pane fade show active"
+		id="service-information-tab-pane"
+		role="tabpanel"
+		aria-labelledby="service-information-tab"
+		tabindex="0"
+	>
+		<h2 class="service__headline">Service Information</h2>
+		{
+			wars && (
+				<p class="wars">
+					<b>{wars.length > 1 ? 'Wars:' : 'War:'}</b>{' '}
+					{wars.join(', ')}
+				</p>
+			)
+		}
+		{
+			datesOfService && (
+				<p class="dates-of-service">
+					<b>
+						{datesOfService.length > 1
+							? 'Dates of Service:'
+							: 'Date of Service:'}
+					</b>{' '}
+					{datesOfService.join(', ')}
+				</p>
+			)
+		}
+		{
+			serviceBranch && (
+				<p class="service-branch">
+					{serviceBranch.length > 1 ? (
+						<b>Branches of service:</b>
+					) : (
+						<b>Branch of service:</b>
+					)}{' '}
+					{serviceBranch.join(', ')}
+				</p>
+			)
+		}
+		{
+			rankAtDischarge && (
+				<p class="rank">
+					{rankAtDischarge.length > 1 ? (
+						<b>Ranks at discharge:</b>
+					) : (
+						<b>Rank at discharge:</b>
+					)}{' '}
+					{rankAtDischarge.join(', ')}
+				</p>
+			)
+		}
+	</div>
+	{
+		awards && (
+			<div
+				class="tab-pane fade"
+				id="awards-tab-pane"
+				role="tabpanel"
+				aria-labelledby="awards-tab"
+				tabindex="0"
+			>
+				<h2 class="awards__headline">Awards</h2>
+				{awards && (
+					<ul class="awards-list">
+						{awards.map((award) => (
+							<li class="awards-list__item">{award}</li>
+						))}
+					</ul>
+				)}
+			</div>
+		)
+	}
+	{
+		advancedTraining && (
+			<div
+				class="tab-pane fade"
+				id="training-tab-pane"
+				role="tabpanel"
+				aria-labelledby="training-tab"
+				tabindex="0"
+			>
+				<h2>Advanced Training</h2>
+				{advancedTraining && (
+					<ul class="advanced-training-list">
+						{advancedTraining.map((training) => (
+							<li class="advanced-training-list__item">
+								{training}
+							</li>
+						))}
+					</ul>
+				)}
+			</div>
+		)
+	}
+	{
+		overseasDuty && (
+			<div
+				class="tab-pane fade"
+				id="overseas-tab-pane"
+				role="tabpanel"
+				aria-labelledby="overseas-tab"
+				tabindex="0"
+			>
+				<h2>Overseas Duty</h2>
+				{overseasDuty && (
+					<ul class="overseas-duty-list">
+						{overseasDuty.map((deployment) => (
+							<li class="overseas-duty-list__item">
+								{deployment}
+							</li>
+						))}
+					</ul>
+				)}
+			</div>
+		)
+	}
+	{
+		jobs && (
+			<div
+				class="tab-pane fade"
+				id="jobs-tab-pane"
+				role="tabpanel"
+				aria-labelledby="jobs-tab"
+				tabindex="0"
+			>
+				<h2>Jobs</h2>
+				{jobs && (
+					<ul class="jobs-list">
+						{jobs.map((job) => (
+							<li class="jobs-list__item">{job}</li>
+						))}
+					</ul>
+				)}
+			</div>
+		)
+	}
+</div>
+<script>
+	import Tab from 'bootstrap/js/dist/tab';
+	(function handleDrag() {
+		const list = document.getElementById('myTab');
+		let isDown = false;
+		let startX;
+		let scrollLeft;
+
+		list.addEventListener('mousedown', (e) => {
+			isDown = true;
+			startX = e.pageX - list.offsetLeft;
+			scrollLeft = list.scrollLeft;
+		});
+
+		list.addEventListener('mouseleave', () => {
+			isDown = false;
+		});
+
+		list.addEventListener('mouseup', () => {
+			isDown = false;
+		});
+
+		list.addEventListener('mousemove', (e) => {
+			if (!isDown) return;
+			e.preventDefault();
+			const x = e.pageX - list.offsetLeft;
+			const walk = (x - startX) * 3; //scroll-fast
+			list.scrollLeft = scrollLeft - walk;
+		});
+	})();
+</script>
